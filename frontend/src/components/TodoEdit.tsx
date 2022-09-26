@@ -23,18 +23,19 @@ export default function TodoEdit(props: { todo: Todo }) {
     return (
         <div className={"card"}>
             <p>Description</p>
-            <p>{description}</p>
-            <p>{status}</p>
             <input onChange={(event) => setDescription(event.target.value)} defaultValue={props.todo.description}/>
             <p>Status</p>
+            <div>
             <select onChange={(event) => setStatus(event.target.value)}>
                 <option> --- select status ---</option>
                 <option value={"OPEN"}>OPEN</option>
                 <option value={"DOING"}>DOING</option>
                 <option value={"DONE"}>DONE</option>
             </select>
-            <button onClick={putTodo}><a href="/">Save</a></button>
+            </div>
+            <button onClick={putTodo}><a href="/">save</a></button>
             <button><a href="/">back</a></button>
+
         </div>
     )
 }

@@ -4,6 +4,18 @@
     padding:15px;
     width: 200px;
 }
+
+button {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 0.1rem 0.1rem;
+}
+
+.delete-button{
+    background-color: #e84b4b;
+
+}
+
 h3 {
     text-align: center;
 }

@@ -30,7 +30,7 @@ function App() {
     return (
         <div>
             <h1>Todo App</h1>
-            <input onChange={(event) => setData(event.target.value)} placeholder={'search todos'}/>
+
             {(() => {
                 switch (window.location.pathname) {
                     case "/details/":
@@ -38,11 +38,18 @@ function App() {
                     case "/edit/":
                         return <TodoEdit todo={todo}/>;
                     default:
-                        return <TodoList todos={todos.filter(({description}) => description.includes(data))}/>;
+                        return <div><input onChange={(event) => setData(event.target.value)}
+                                           placeholder={'search todos'}/><TodoList
+                            todos={todos.filter(({description}) => description.includes(data))}/>
+
+                                <input onChange={(event) => setAdd(event.target.value)} placeholder={'add todos'}/>
+                                <button onClick={addTodo}>Add</button>
+
+                        </div>
                 }
             })()}
-            <input onChange={(event) => setAdd(event.target.value)} placeholder={'add todos'}/>
-            <button onClick={addTodo}>Add</button>
+
+
         </div>
     );
 }

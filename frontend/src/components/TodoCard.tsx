@@ -12,9 +12,14 @@ export default function TodoCard(props: { todo: Todo }) {
     const details: string = "/details/?id=" + props.todo.id
     const edit: string = "/edit/?id=" + props.todo.id
 
-    const advance = () => {
+    const advanceButton = () => {
         if (props.todo.status != "DONE") {
             return <button onClick={advanceTodo}>advance</button>
+        }
+    }
+    const deleteButton = () => {
+        if (props.todo.status == "DONE") {
+            return <button className={"delete-button"} onClick={deleteTodo}>delete</button>
         }
     }
 
@@ -41,8 +46,8 @@ export default function TodoCard(props: { todo: Todo }) {
             <p>{props.todo.status}</p>
             <button><a href={details}>details</a></button>
             <button><a href={edit}>edit</a></button>
-            {advance()}
-            <button onClick={deleteTodo}>delete</button>
+            {advanceButton()}
+            {deleteButton()}
         </div>
     )
 }
